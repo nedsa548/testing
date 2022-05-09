@@ -236,7 +236,7 @@ async function main() {
 
     while (!isChange) {
         for (let i = 0; i < dexes.length; i++) {
-            isChange = await checkPools(allPools[i], dexes[i]); //returns true if there is a new change(weight, rewarder contract) on a pool or if there is a new farm.
+            isChange = await checkPools(allPools[i], dexes[i]); //returns true if there is a new change(weight, rewarder contract) on a pool or if there is a new farm on ith dex.
         }
     }
 }
