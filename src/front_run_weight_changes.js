@@ -1,3 +1,6 @@
+// This script pulls pool info from dexes that are on various chains and
+// checks if there is a change(e.g. weight, rewarder contract) on pools or if there is a new farm.
+
 require("dotenv").config({path: "../.env"});
 const CONFIG = require("../config/config.js");
 const Web3 = require("web3");
