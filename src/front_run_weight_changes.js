@@ -79,7 +79,9 @@ const dexes = [
     //{ name: "Netswap", chain: "metis", contract: "0x9d1dbB49b2744A1555EDbF1708D64dC71B0CB052", abi: netswapABI, additionalCall: false, twittter: "netswapofficial" },
 ];
 
-async function checkPools(pools, dex) { // compares pools to see if there is any change
+//  --------------------------------------------------------------------------------------
+
+async function checkPools(pools, dex) { // compare pools to see if there is any change
 
     const knownPoolCount = Object.keys(pools).length;
     const currentPools = await getPools(dex);
@@ -120,8 +122,8 @@ async function checkPools(pools, dex) { // compares pools to see if there is any
 
 }
 
-async function getPools(dex) {
-    const pools = {}; // pools in a dex
+async function getPools(dex) { // get pool data
+    const pools = {}; // pools in a dex will be put in this list
     var contract = "";
 
     //check what chain the dex is on so that we know which RPC to use for the web 3 contract.
@@ -153,7 +155,7 @@ async function getPools(dex) {
         contract = new metisWeb3.eth.Contract(dex.abi, dex.contract);
     }
 
-    const poolCount = parseInt(await contract.methods.poolLength().call());
+    const poolCount = parseInt(await contract.methods.poolLength().call()); // total pool count on the dex
 
      // check if there is a separate method for getting rewarder and lpToken info. if there is, call them to get the info.
 
